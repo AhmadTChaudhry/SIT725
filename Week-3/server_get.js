@@ -10,6 +10,7 @@
         const n1= parseInt(req.query.n1);
         const n2=parseInt(req.query.n2);
         const result = addTwoNumber(n1,n2);
+        console.log({statuscocde:200, data: result });
         res.json({statuscocde:200, data: result }); 
     });
 
