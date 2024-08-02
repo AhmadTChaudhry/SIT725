@@ -1,7 +1,7 @@
 {
-    "name": "sit725-2021-t2-prac",
+    "name": "Task 3.2P",
     "version": "1.0.0",
-    "description": "sit 725 T2 week 2 prac",
+    "description": "Task 3.2P",
     "main": "server.js",
     "scripts": {
         "start": "node server_get.js"
