@@ -1,14 +1,9 @@
-const clickMe = () => {
-    alert("Thanks for clicking me. Hope you have a nice day!")
-}
-$(document).ready(function () {
-    // $('.materialboxed').materialbox();
-    $('#clickMeButton').click(() => {
-        // clickMe();
-        $.ajax({
-            url: "addTwoNumber?n1=9&n2=8", success: function (result) {
-                alert(result.data);
-            }
-        });
-    })
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+    console.log("Name: " + name);
+    console.log("Email: " + email);
+    console.log("Message: " + message);
+    alert("Thanks for submitting your message. We will get back to you soon!");
 });
