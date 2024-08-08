@@ -1,11 +1,13 @@
+// Form Validation
+
 function validateForm(event) {
     event.preventDefault();
     let isValid = true;
 
-    const firstName = document.getElementById("inputFirstName").value.trim();
+    const Name = document.getElementById("inputFirstName").value.trim();
     const firstNameMsg = document.getElementById("firstNameMsg");
-    if (firstName === "") {
-        firstNameMsg.innerHTML = "First name cannot be empty.";
+    if (Name === "") {
+        firstNameMsg.innerHTML = "Name cannot be empty.";
         isValid = false;
     } else {
         firstNameMsg.innerHTML = "";
@@ -75,11 +77,11 @@ function validateForm(event) {
     }
 
     if (isValid) {
-        // alert("Query submitted successfully! Someone will get back to you.");
+        // Post Form Data to Console
         console.log("Form Data:");
-        console.log("First Name: " + firstName);
+        console.log("Name: " + Name);
         console.log("Email: " + Email);
-        console.log("Mobile: " + mobile);
+        console.log("Number: " + mobile);
         console.log("Birthdate: " + birthdate);
         console.log("City: " + city);
         console.log("State: " + state);
@@ -88,18 +90,19 @@ function validateForm(event) {
     }
 }
 
+// Post Form Data to Object and Send to Server
 document.getElementById('contactform').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const formData = {
-        firstName: document.getElementById("inputFirstName").value.trim(),
-        email: document.getElementById("inputEmail").value.trim(),
-        mobile: document.getElementById("inputMobile").value.trim(),
-        birthdate: document.getElementById("inputBirthdate").value,
-        city: document.getElementById("inputCity").value.trim(),
-        state: document.getElementById("inputState").value,
-        postcode: document.getElementById("inputZip").value.trim(),
-        message: document.getElementById("inputMessage").value.trim()
+        Name: document.getElementById("inputFirstName").value.trim(),
+        Email: document.getElementById("inputEmail").value.trim(),
+        Number: document.getElementById("inputMobile").value.trim(),
+        Birthdate: document.getElementById("inputBirthdate").value,
+        City: document.getElementById("inputCity").value.trim(),
+        State: document.getElementById("inputState").value,
+        Postcode: document.getElementById("inputZip").value.trim(),
+        Message: document.getElementById("inputMessage").value.trim()
     };
 
     const response = await fetch('/submit-form', {

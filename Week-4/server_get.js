@@ -31,14 +31,8 @@ async function runDBConnection() {
             try {
                 const formData = req.body;
                 console.log("Received form data:\n", formData);
-
-                // Validate formData
-                if (!formData || typeof formData !== 'object') {
-                    throw new Error('Invalid form data');
-                }
-
                 await collection.insertOne(formData);
-                res.json({ message: 'Form submitted successfully!' });
+                res.json({ message: 'Form submitted successfully! Someone will reach out to you :)' });
             } catch (error) {
                 console.error("Error inserting form data:", error);
                 res.status(500).json({ message: 'Failed to submit form' });
@@ -46,7 +40,7 @@ async function runDBConnection() {
         });
 
         app.listen(port, () => {
-            console.log(`Server running on http://localhost:${port}`);
+            console.log(`Server running on port: ${port}\n`);
         });
     } catch (ex) {
         console.error("Error connecting to MongoDB:", ex);
