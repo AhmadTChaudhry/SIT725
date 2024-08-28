@@ -21,31 +21,6 @@ describe('Unit Tests', function () {
         await client.close();
     });
 
-    // Test Cases for /GET
-
-    describe('Tests for GET /', function () {
-        it('Should return a status code of 200', function (done) {
-            request.get(baseURL, function (error, response, body) {
-                expect(response.statusCode).to.equal(200);
-                done();
-            });
-        });
-
-        it('Should include the website title "Deakin Tuning"', function (done) {
-            request.get(baseURL, function (error, response, body) {
-                expect(body).to.include('<title>Deakin Tuning</title>');
-                done();
-            });
-        });
-
-        it('Should include the contact form with id "contactform"', function (done) {
-            request.get(baseURL, function (error, response, body) {
-                expect(body).to.include('<section id="contactform">');
-                done();
-            });
-        });
-    });
-
     // Test Cases for /POST
 
     describe('Tests for POST /submit-form with Rollback', function () {
@@ -85,6 +60,31 @@ describe('Unit Tests', function () {
 
             const deletedData = await collection.findOne({ _id: insertedId });
             expect(deletedData).to.be.null;
+        });
+    });
+
+    // Test Cases for /GET
+
+    describe('Tests for GET /', function () {
+        it('Should return a status code of 200', function (done) {
+            request.get(baseURL, function (error, response, body) {
+                expect(response.statusCode).to.equal(200);
+                done();
+            });
+        });
+
+        it('Should include the website title "Deakin Tuning"', function (done) {
+            request.get(baseURL, function (error, response, body) {
+                expect(body).to.include('<title>Deakin Tuning</title>');
+                done();
+            });
+        });
+
+        it('Should include the contact form with id "contactform"', function (done) {
+            request.get(baseURL, function (error, response, body) {
+                expect(body).to.include('<section id="contactform">');
+                done();
+            });
         });
     });
 });
