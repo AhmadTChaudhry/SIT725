@@ -36,11 +36,11 @@ app.post('/submit-form', async (req, res) => {
 
 io.on('connection', (socket) => {
     userCount++;
-    console.log(`User connected. Total users: ${userCount}`);
+    console.log(`User connected. \nTotal connected users users: ${userCount}`);
 
     socket.on('disconnect', () => {
         userCount--;
-        console.log(`User disconnected. Total users: ${userCount}`);
+        console.log(`User disconnected.\nTotal connected users: ${userCount}`);
     });
 });
 
